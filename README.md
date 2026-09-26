@@ -1,3 +1,5 @@
+# HackBlitz
+
 # Campus Passport
 
 > One student identity. Real contributions. Real opportunities.
@@ -17,10 +19,10 @@ verifiable achievements that can unlock opportunities.
 
 LEARN → CONTRIBUTE → IMPROVE → UNLOCK
 
-- **Learn** through Bhasha Learn
-- **Contribute** through My School, My Fix
-- **Improve** the campus through Green Meter
-- **Unlock opportunities** through Pocket Bank
+- **Learn** through Campus Lens
+- **Contribute** through Campus Pulse
+- **Improve** the campus through EcoPulse
+- **Unlock opportunities** through Opportunity Wallet
 
 ---
 
@@ -41,11 +43,11 @@ meaningful outcomes in another.
 
 # The Four Missions
 
-## 1. Bhasha Learn
+## 1. Campus Lens
 
 ### Learn
 
-Bhasha Learn helps students understand academic concepts in the language
+Campus Lens helps students understand academic concepts in the language
 they are most comfortable with.
 
 A student can:
@@ -58,9 +60,9 @@ A student can:
 
 ### Beyond Translation
 
-Bhasha is not just a translation tool.
+Campus Lens is not just a translation tool.
 
-Campus data from Green Meter can become learning material.
+Campus data from EcoPulse can become learning material.
 
 For example:
 
@@ -73,14 +75,14 @@ The campus itself becomes part of the textbook.
 
 ---
 
-# 2. My School, My Fix
+# 2. Campus Pulse
 
 ### Contribute
 
 Students often notice problems in school before administrators do.
 
-My School, My Fix gives students a structured way to report and track
-those problems.
+Campus Pulse gives students a structured way to report and track those
+problems.
 
 Examples:
 
@@ -103,11 +105,11 @@ Campus Passport.
 
 ---
 
-# 3. Green Meter
+# 3. EcoPulse
 
 ### Improve
 
-Green Meter makes the campus's environmental impact visible.
+EcoPulse makes the campus's environmental impact visible.
 
 It provides:
 
@@ -125,9 +127,9 @@ For example:
 
 > A student reports a leaking tap.
 
-The issue is processed through My School, My Fix.
+The issue is processed through Campus Pulse.
 
-Green Meter can estimate the resulting water waste and, once resolved,
+EcoPulse can estimate the resulting water waste and, once resolved,
 show the potential savings.
 
 That creates a connection between:
@@ -136,18 +138,19 @@ That creates a connection between:
 
 ---
 
-# 4. Pocket Bank
+# 4. Opportunity Wallet
 
 ### Unlock
 
-Pocket Bank addresses situations where students may need financial
-support despite their families not having traditional credit histories.
+Opportunity Wallet addresses situations where students may need
+financial support despite their families not having traditional credit
+histories.
 
 The HackBlitz scenario is a student who needs ₹2,000 for an Olympiad fee.
 
-Instead of relying on traditional credit history, Pocket Bank can use
-verified achievements from the Campus Passport as part of a simulated
-eligibility system.
+Instead of relying on traditional credit history, Opportunity Wallet can
+use verified achievements from the Campus Passport as part of a
+simulated eligibility system.
 
 Potential inputs include:
 
@@ -166,29 +169,40 @@ support.
 
 # Campus Passport
 
-The Campus Passport is the central identity connecting all four
-missions.
+Campus Passport is the central identity and evidence layer connecting
+the four products.
 
 It records **evidence**, rather than reducing a student to one arbitrary
 "trust score."
 
-### Passport
+Students build a living record of what they have:
+
+- **Learned**
+- **Contributed**
+- **Improved**
+
+Those verified achievements can then contribute to opportunities made
+available through Opportunity Wallet.
+
+### Campus Passport Architecture
 
 ```text
-                    CAMPUS PASSPORT
-                           │
-          ┌────────────────┼────────────────┐
-          │                │                │
-       LEARN          CONTRIBUTE         IMPROVE
-          │                │                │
-      Bhasha           School Fix       Green Meter
-          │                │                │
-          └────────────────┼────────────────┘
-                           │
-                  VERIFIED ACHIEVEMENTS
-                           │
-                           ▼
-                     OPPORTUNITIES
-                           │
-                           ▼
-                     Pocket Bank
+                         CAMPUS PASSPORT
+                    Identity + Evidence Layer
+                              │
+             ┌────────────────┼────────────────┐
+             │                │                │
+             ▼                ▼                ▼
+        CAMPUS LENS      CAMPUS PULSE       ECOPULSE
+           LEARN           CONTRIBUTE         IMPROVE
+             │                │                │
+             └────────────────┼────────────────┘
+                              │
+                              ▼
+                    VERIFIED ACHIEVEMENTS
+                              │
+                              ▼
+                         OPPORTUNITIES
+                              │
+                              ▼
+                    OPPORTUNITY WALLET
