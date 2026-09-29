@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 
 from backend.app.core.config import settings
+from backend.app.core.exceptions import register_exception_handlers
 from backend.app.database import initialize_database
 from backend.app.opportunity_wallet.routes import (
     router as opportunity_wallet_router,
@@ -30,6 +31,8 @@ app = FastAPI(
     version="1.0.0",
     lifespan=lifespan,
 )
+
+register_exception_handlers(app)
 
 # CORS configuration for local development
 app.add_middleware(
