@@ -27,28 +27,9 @@ router = APIRouter(
 
 
 # ---------------------------------------------------------
-# ACTOR / ROLE ENFORCEMENT DEPENDENCY
+# ACTOR / ROLE ENFORCEMENT DEPENDENCY (Delegated to Auth Boundary)
 # ---------------------------------------------------------
-
-def verify_actor_role(
-    allowed_roles: List[str],
-    x_actor_role: Optional[str] = Header(None, alias="X-Actor-Role"),
-    actor_role: Optional[str] = Query(None),
-    body_role: Optional[str] = None,
-):
-    """
-    Enforces prototype actor roles: TEACHER, ADMIN, MERCHANT, STUDENT.
-    Reads role from Header 'X-Actor-Role', Query param 'actor_role', or body.
-    """
-    role = (x_actor_role or actor_role or body_role or "").strip().upper()
-    
-    # If explicitly passed as unauthorized role (e.g. STUDENT trying to reward), reject immediately
-    if role and role not in [r.upper() for r in allowed_roles]:
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail=f"Forbidden: Actor role '{role}' is not authorized for this operation. Required: {allowed_roles}.",
-        )
-    return role or allowed_roles[0]
+from backend.app.auth.dependencies import verify_actor_role
 
 
 # ---------------------------------------------------------
