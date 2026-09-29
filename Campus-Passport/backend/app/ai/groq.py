@@ -1,24 +1,9 @@
 import base64
-import os
-from pathlib import Path
 
-from dotenv import load_dotenv
 from groq import Groq
 
+from backend.app.core.config import settings
 from .prompts import CAMPUS_LENS_SYSTEM_PROMPT
-
-
-# Load .env portably from backend root, project root, or parent environments
-_candidates = [
-    Path(__file__).resolve().parents[2] / ".env",  # backend/.env
-    Path(__file__).resolve().parents[3] / ".env",  # Campus-Passport/.env
-    Path("backend/.env"),
-    Path(".env"),
-]
-for _env_path in _candidates:
-    if _env_path.exists():
-        load_dotenv(_env_path)
-load_dotenv()
 
 MODEL = "qwen/qwen3.8-27b"
 
@@ -35,7 +20,7 @@ def analyze_textbook_image(
     grade: str,
 ) -> str:
 
-    api_key = os.getenv("GROQ_API_KEY")
+    api_key = settings.GROQ_API_KEY
 
     if not api_key:
         raise RuntimeError("GROQ_API_KEY is not configured")

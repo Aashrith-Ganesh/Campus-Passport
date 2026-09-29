@@ -3,14 +3,14 @@ from pathlib import Path
 from sqlalchemy import create_engine, event
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-# backend/app/database/database.py -> backend/campus.db
-BACKEND_DIR = Path(__file__).resolve().parents[2]
-DATABASE_PATH = BACKEND_DIR / "campus.db"
-DATABASE_URL = f"sqlite:///{DATABASE_PATH.as_posix()}"
+from backend.app.core.config import settings
+
+DATABASE_PATH = settings.DATABASE_PATH
+DATABASE_URL = settings.DATABASE_URL
 
 engine = create_engine(
     DATABASE_URL,
-    connect_args={"check_same_thread": False},
+    connect_args={"check_same_thread": False} if "sqlite" in DATABASE_URL else {},
 )
 
 # SQLite does not enforce FK constraints unless this PRAGMA is enabled

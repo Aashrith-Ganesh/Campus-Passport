@@ -1,5 +1,4 @@
 import json
-import os
 
 from fastapi import APIRouter, Body, Depends, File, Form, HTTPException, UploadFile
 from sqlalchemy.orm import Session
@@ -7,6 +6,7 @@ from sqlalchemy.orm import Session
 from backend.app.ai.groq import analyze_textbook_image
 from backend.app.ai.quiz import generate_quiz
 from backend.app.ai.parser import parse_quiz_response
+from backend.app.core.config import settings
 from backend.app.database.database import get_db
 from backend.app.schemas.campus_lens import CampusLensResult
 from backend.app.schemas.quiz import QuizSubmission
@@ -29,8 +29,7 @@ router = APIRouter(
 @router.get("/status")
 async def campus_lens_status():
     """Check whether the AI backend (Groq) is configured and available."""
-    api_key = os.environ.get("GROQ_API_KEY", "")
-    ai_configured = bool(api_key and len(api_key) > 10)
+    ai_configured = settings.is_ai_configured
     return {
         "success": True,
         "ai_configured": ai_configured,

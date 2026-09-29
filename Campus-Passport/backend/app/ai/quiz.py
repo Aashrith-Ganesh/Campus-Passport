@@ -1,17 +1,8 @@
 import json
-import os
-from pathlib import Path
 
-from dotenv import load_dotenv
 from groq import Groq
 
-
-# Load .env portably from backend root or parent environments
-_backend_env = Path(__file__).resolve().parents[3] / ".env"
-if _backend_env.exists():
-    load_dotenv(_backend_env)
-else:
-    load_dotenv()
+from backend.app.core.config import settings
 
 
 
@@ -82,7 +73,7 @@ def generate_quiz(
     difficulty: str = "medium",
 ) -> str:
 
-    api_key = os.getenv("GROQ_API_KEY")
+    api_key = settings.GROQ_API_KEY
 
     if not api_key:
         raise RuntimeError("GROQ_API_KEY is not configured")

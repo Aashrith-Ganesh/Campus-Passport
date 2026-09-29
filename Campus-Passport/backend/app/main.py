@@ -1,22 +1,10 @@
 from contextlib import asynccontextmanager
 from pathlib import Path
-
-from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 
-# Ensure .env is loaded from backend directory, project root, or cwd
-_backend_root = Path(__file__).resolve().parents[1]
-for _candidate in [
-    _backend_root / ".env",
-    _backend_root.parent / ".env",
-    Path(".env"),
-]:
-    if _candidate.exists():
-        load_dotenv(_candidate)
-load_dotenv()
-
+from backend.app.core.config import settings
 from backend.app.database import initialize_database
 from backend.app.opportunity_wallet.routes import (
     router as opportunity_wallet_router,
