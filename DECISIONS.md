@@ -159,3 +159,39 @@ Frontend and parallel team work may already depend on current endpoints.
 ### Consequence
 
 Compatibility aliases may be temporary, but they must point to one implementation and have a documented removal condition.
+
+---
+
+## ADR-010 - Students identity APIs owned by students feature
+
+**Status:** Accepted
+
+### Decision
+
+Student lookup endpoints (`/api/students`, `/api/students/{student_id}`) belong exclusively to `app/students/`.
+
+### Reason
+
+Earlier prototype placed student queries in `student_pocket`. Extracting them to `app/students/` decouples generic student identity from financial pocket logic.
+
+### Consequence
+
+`student_pocket` delegates student queries to `students.service`. Endpoints remain backwards compatible.
+
+---
+
+## ADR-011 - Centralized database lifecycle with separate table creation and seeding
+
+**Status:** Accepted
+
+### Decision
+
+Database initialization in `app/database/init_db.py` cleanly separates schema generation (`create_tables()`) from demo data population (`seed_demo()`).
+
+### Reason
+
+Production and testing environments require predictable, idempotent initialization without unintended data deletion or repeated table dropping.
+
+### Consequence
+
+`initialize_database(seed_demo=...)` remains the single orchestrator for application lifespan and testing suites.

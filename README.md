@@ -398,6 +398,32 @@ Then open:
 http://localhost:8000/
 ```
 
+### Running Tests
+
+Run all backend integration test suites:
+
+```bash
+PYTHONPATH="." backend/.venv/bin/python backend/tests/run_all_tests.py
+```
+
+### Backend Architecture (Week 1 Foundation)
+
+The backend is organized with a **feature-first modular architecture**:
+
+```text
+backend/app/
+├── main.py                  # Application lifespan & router registration
+├── core/                    # Centralized config (pydantic-settings) & exceptions
+├── database/                # Shared SQLAlchemy models, database engine, init_db
+├── auth/                    # Authentication boundary (UserContext, dependencies for Sidharth)
+├── students/                # Student directory identity endpoints & service
+├── passport/                # Passport profile aggregation service & endpoints
+├── campus_lens/             # Textbook vision analysis, quiz generation & scoring
+├── campus_pulse/            # School issues, stakeholder research & verification
+├── opportunity_wallet/      # Opportunity catalog, eligibility checks & applications
+└── routes/student_pocket.py # Universal student balance, NFC cards, transactions
+```
+
 ---
 
 # Demo Credentials

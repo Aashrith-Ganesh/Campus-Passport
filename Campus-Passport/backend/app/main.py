@@ -16,6 +16,7 @@ from backend.app.campus_pulse.routes import (
     issues_router,
 )
 from backend.app.passport.routes import router as passport_router
+from backend.app.students.routes import router as students_router
 from backend.app.routes.student_pocket import router as student_pocket_router
 
 
@@ -65,6 +66,7 @@ app.include_router(opportunity_wallet_router)
 app.include_router(campus_pulse_router)
 app.include_router(issues_router)
 app.include_router(passport_router)
+app.include_router(students_router)
 app.include_router(student_pocket_router)
 
 

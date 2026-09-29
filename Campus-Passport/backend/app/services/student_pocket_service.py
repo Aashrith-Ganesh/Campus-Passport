@@ -137,20 +137,9 @@ def get_reward_categories() -> List[RewardCategoryInfo]:
 
 
 # ---------------------------------------------------------
-# STUDENT QUERIES
+# STUDENT QUERIES (Delegated to students service)
 # ---------------------------------------------------------
-
-def list_students(db: Session) -> List[Student]:
-    """Retrieve all students."""
-    return db.query(Student).order_by(Student.id.asc()).all()
-
-
-def get_student(db: Session, student_id: str) -> Student:
-    """Retrieve a single student by ID."""
-    student = db.get(Student, student_id)
-    if not student:
-        raise ValueError(f"Student '{student_id}' does not exist.")
-    return student
+from backend.app.students.service import get_student, list_students
 
 
 # ---------------------------------------------------------

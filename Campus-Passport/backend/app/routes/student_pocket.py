@@ -33,38 +33,9 @@ from backend.app.auth.dependencies import verify_actor_role
 
 
 # ---------------------------------------------------------
-# 1. STUDENT DIRECTORY ENDPOINTS
+# 1. STUDENT DIRECTORY (Delegated to students feature module)
 # ---------------------------------------------------------
-
-@router.get(
-    "/api/students",
-    response_model=List[StudentSimpleResponse],
-    summary="List all students for teacher dashboard",
-)
-def list_students(
-    db: Session = Depends(get_db),
-):
-    """Retrieve all students in the school directory."""
-    return student_pocket_service.list_students(db)
-
-
-@router.get(
-    "/api/students/{student_id}",
-    response_model=StudentSimpleResponse,
-    summary="Get single student details",
-)
-def get_student(
-    student_id: str,
-    db: Session = Depends(get_db),
-):
-    """Retrieve details for a specific student."""
-    try:
-        return student_pocket_service.get_student(db, student_id)
-    except ValueError as exc:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=str(exc),
-        )
+from backend.app.students.routes import get_student, list_students
 
 
 # ---------------------------------------------------------

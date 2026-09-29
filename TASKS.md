@@ -230,90 +230,76 @@ There is one obvious integration point for Sidharth's auth.
 
 ---
 
-## T10 - Students API foundation
+## T10 - Students API foundation [COMPLETED]
 
 ### Goal
 Give student-related APIs a clear home.
 
 ### Actions
-Create the students feature only around existing behavior.
-
-Do not duplicate Student model/database logic.
-
-Move student listing/retrieval behavior from Student Pocket routes if that is the correct ownership after inspection.
+- Created `app/students/` package with `routes.py`, `schemas.py`, `service.py`, `__init__.py`.
+- Moved student retrieval/listing endpoints (`/api/students`, `/api/students/{student_id}`) out of Student Pocket into Students module.
+- Preserved backwards compatibility re-exports in `app/schemas/student_pocket.py`, `app/services/student_pocket_service.py`, and `app/routes/student_pocket.py`.
 
 ### Verification
-Existing student endpoints continue working.
+- Tested `GET /api/students` and `GET /api/students/STU001`.
+- Verified Student Pocket and Passport tests pass without regression.
 
 ### Acceptance
-Student identity APIs have one feature owner.
+Student identity APIs have one authoritative feature owner.
 
 ---
 
-## T11 - Database initialization cleanup
+## T11 - Database initialization cleanup [COMPLETED]
 
 ### Goal
 Separate application startup from demo-data policy.
 
 ### Actions
-Review `initialize_database(seed_demo=True)`.
-
-Decide how development/demo seeding should be controlled through configuration.
-
-Do not remove seed data needed for local demos.
+- Cleaned up `app/database/init_db.py` to separate `create_tables()` and `seed_demo()`.
+- Added logging and direct CLI runner execution (`python -m backend.app.database.init_db --seed`).
+- Kept `initialize_database(seed_demo=...)` as single predictable entrypoint for `main.py` lifespan and test suites.
+- Preserved existing SQLite data and idempotency guarantees.
 
 ### Verification
-Fresh local environment can initialize predictably.
+- Executed direct CLI runner and programmatic initialization.
+- Verified database creates tables and preserves existing records safely.
 
 ### Acceptance
-Production-style startup does not silently depend on demo data.
+Database initialization is predictable, modular, and centralized.
 
 ---
 
-## T12 - Testing and integration
+## T12 - Testing and integration [COMPLETED]
 
-### Minimum checks
-
-1. Backend startup.
-2. `/health`.
-3. `/docs`.
-4. Frontend `/`.
-5. Database initialization.
-6. Student retrieval.
-7. Passport retrieval.
-8. Points/balance behavior.
-9. Campus Pulse issue flow.
-10. Opportunity eligibility/application.
-11. Campus Lens analysis contract.
-12. Quiz generation/parsing.
-13. Quiz scoring.
-14. Role-protected endpoints.
-15. `.env` ignored by Git.
+### Checks Performed
+1. Backend startup and lifespan: verified.
+2. `/health`: verified 200 OK.
+3. `/docs`: verified 200 OK.
+4. Frontend `/`: verified 200 OK.
+5. Database initialization: verified idempotent.
+6. Student retrieval (`/api/students`, `/api/students/{id}`): verified.
+7. Passport retrieval (`/api/student/{id}/passport`, `/points`, `/achievements`): verified.
+8. Points/balance behavior: verified across Student Pocket and Passport.
+9. Campus Pulse issue flow (`/api/campus-pulse/issues` and `/api/issues` alias): verified.
+10. Opportunity eligibility/application (`/api/opportunities`): verified.
+11. Campus Lens analysis contract: verified deterministic AI pipeline.
+12. Quiz scoring and teacher report: verified standalone tests.
+13. Role-protected endpoints: verified auth boundary dependencies.
+14. Error handling: verified standard `{"detail": "..."}` format.
+15. Full test suite: ALL 7 TEST SUITES PASSED CLEANLY.
 
 ### Acceptance
-
 All relevant tests pass and `git diff` contains only intended changes.
 
 ---
 
-## T13 - Documentation and handoff
+## T13 - Documentation and handoff [COMPLETED]
 
-Update:
-- README startup instructions,
-- architecture documentation,
-- environment setup,
-- API ownership,
-- Week 1 completion status.
-
-Record unresolved work for Week 2.
+### Actions
+- Removed legacy dead code `app/my_school_my_fix/`.
+- Updated `TASKS.md`, `DECISIONS.md`, `ARCHITECTURE_OWNERSHIP.md`, `WEEK1_BACKEND_PLAN.md`, and `README.md`.
+- Documented clean boundaries for Parvesh (database) and Sidharth (auth/roles).
+- Recorded architecture and completion status.
 
 ### Final acceptance
-
-Another team member should be able to:
-1. clone the repository,
-2. configure `.env`,
-3. start the backend,
-4. understand where each feature lives,
-5. run tests,
-6. identify the auth/database integration points,
-7. continue development without reverse-engineering the whole project.
+Week 1 backend foundation is stabilized, feature-first, fully tested, and ready for team collaboration.

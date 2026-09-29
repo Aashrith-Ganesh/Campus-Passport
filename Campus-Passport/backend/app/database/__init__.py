@@ -1,5 +1,5 @@
 from .database import Base, SessionLocal, engine, get_db
-from .init_db import initialize_database
+from .init_db import create_tables, initialize_database, seed_demo
 from .models import (
     Achievement,
     IssueInterview,
@@ -20,6 +20,8 @@ __all__ = [
     "engine",
     "get_db",
     "initialize_database",
+    "create_tables",
+    "seed_demo",
     "Student",
     "Achievement",
     "Opportunity",
