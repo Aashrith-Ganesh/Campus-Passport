@@ -11,7 +11,7 @@ from backend.app.opportunity_wallet.routes import (
     router as opportunity_wallet_router,
 )
 from backend.app.campus_lens.routes import router as campus_lens_router
-from backend.app.routes.campus_pulse import (
+from backend.app.campus_pulse.routes import (
     router as campus_pulse_router,
     issues_router,
 )
