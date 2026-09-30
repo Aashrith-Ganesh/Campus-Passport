@@ -18,7 +18,7 @@ A student's campus journey should not be represented only by marks or attendance
 
 - **Learn** through Campus Lens
 - **Contribute** through Campus Pulse
-- **Improve** the campus through EcoPulse
+- **Improve** through verified campus contributions and improvements
 - **Unlock opportunities** through Opportunity Wallet
 
 ---
@@ -27,15 +27,15 @@ A student's campus journey should not be represented only by marks or attendance
 
 Students interact with their campus through many disconnected systems.
 
-Learning, school contributions, sustainability, and financial support are often treated as separate problems.
+Learning, school contributions, student support, and opportunities are often treated as separate problems.
 
 Campus Passport connects them into one system.
 
-Instead of creating four independent applications, we are building one campus ecosystem where activity in one part of the system can create meaningful outcomes in another.
+Instead of creating multiple independent applications, we are building one campus ecosystem where meaningful student activity can create verifiable evidence and help connect students to opportunities.
 
 ---
 
-# The Four Missions
+# The Three Core Missions
 
 ## 1. Campus Lens
 
@@ -49,21 +49,17 @@ A student can:
 - Get the concept explained in Kannada or Hindi
 - Generate a quiz
 - Demonstrate their understanding
-- Earn a verified learning achievement
+- Build verified learning evidence
 
 ### Beyond Translation
 
 Campus Lens is not just a translation tool.
 
-Campus data from EcoPulse can become learning material.
+It turns textbook content into an interactive learning experience:
 
-For example:
+**Capture → Understand → Practice → Prove**
 
-> "Your campus used 18% less electricity this month."
-
-That real campus event can become the basis for a science lesson, explanation, or quiz.
-
-The campus itself becomes part of the textbook.
+The system uses AI to generate explanations and quiz questions, while quiz performance is evaluated deterministically by the backend.
 
 ---
 
@@ -90,57 +86,26 @@ Issues move through a simple lifecycle:
 
 For the HackBlitz mission, the system is also backed by real user research from students or staff.
 
-A student's contribution can become a verified achievement on their Campus Passport.
+A student's contribution can become part of their verified Campus Passport evidence.
 
 ---
 
-# 3. EcoPulse
-
-### Improve
-
-EcoPulse makes the campus's environmental impact visible.
-
-It provides:
-
-- Energy monitoring
-- Water monitoring
-- Solar savings calculations
-- Carbon tracking
-- Class-level sustainability comparisons
-- AI-generated saving suggestions
-
-The important part is that environmental actions produce measurable evidence.
-
-For example:
-
-> A student reports a leaking tap.
-
-The issue is processed through Campus Pulse.
-
-EcoPulse can estimate the resulting water waste and, once resolved, show the potential savings.
-
-That creates a connection between:
-
-**Student action → Campus improvement → Measurable impact**
-
----
-
-# 4. Opportunity Wallet
+# 3. Opportunity Wallet
 
 ### Unlock
 
-Opportunity Wallet addresses situations where students may need financial support despite their families not having traditional credit histories.
+Opportunity Wallet addresses situations where students may need support or access to opportunities despite traditional systems not fully representing their achievements.
 
 The HackBlitz scenario is a student who needs **₹2,000 for an Olympiad fee**.
 
-Instead of relying on traditional credit history, Opportunity Wallet can use verified achievements from the Campus Passport as part of a **simulated eligibility system**.
+Instead of relying only on traditional records, Opportunity Wallet can use verified achievements from the Campus Passport as part of a **simulated eligibility system**.
 
 Potential inputs include:
 
 - Learning achievements
 - Attendance
 - School contributions
-- Sustainability contributions
+- Verified student evidence
 
 The result is an opportunity layer where achievement can help unlock support.
 
@@ -150,7 +115,7 @@ The result is an opportunity layer where achievement can help unlock support.
 
 # Campus Passport
 
-Campus Passport is the central **identity and evidence layer** connecting the four products.
+Campus Passport is the central **identity and evidence layer** connecting the platform.
 
 It records **evidence**, rather than reducing a student to one arbitrary "trust score."
 
@@ -174,22 +139,19 @@ The frontend is served directly by the FastAPI backend, allowing the entire appl
                          CAMPUS PASSPORT
                     Identity + Evidence Layer
                               │
-             ┌────────────────┼────────────────┐
-             │                │                │
-             ▼                ▼                ▼
-        CAMPUS LENS      CAMPUS PULSE       ECOPULSE
-           LEARN           CONTRIBUTE         IMPROVE
-             │                │                │
-             └────────────────┼────────────────┘
+                 ┌────────────┼────────────┐
+                 │            │            │
+                 ▼            ▼            ▼
+            CAMPUS LENS  CAMPUS PULSE  OPPORTUNITY WALLET
+               LEARN      CONTRIBUTE       UNLOCK
+                 │            │            │
+                 └────────────┼────────────┘
                               │
                               ▼
-                    VERIFIED ACHIEVEMENTS
+                     VERIFIED EVIDENCE
                               │
                               ▼
                          OPPORTUNITIES
-                              │
-                              ▼
-                    OPPORTUNITY WALLET
 ```
 
 ### Application Architecture
@@ -459,20 +421,20 @@ Campus Passport is designed around an important distinction:
 A student's record can contain multiple forms of verified evidence:
 
 ```text
-                    STUDENT
+                     STUDENT
                        │
-          ┌────────────┼────────────┐
-          │            │            │
-          ▼            ▼            ▼
-       LEARNING    CONTRIBUTION   IMPACT
-          │            │            │
-          └────────────┼────────────┘
-                       │
-                       ▼
-             VERIFIED ACHIEVEMENTS
-                       │
-                       ▼
-                  OPPORTUNITIES
+           ┌────────────┼────────────┐
+           │            │            │
+           ▼            ▼            ▼
+        LEARNING    CONTRIBUTION   IMPROVEMENT
+           │            │            │
+           └────────────┼────────────┘
+                        │
+                        ▼
+               VERIFIED EVIDENCE
+                        │
+                        ▼
+                   OPPORTUNITIES
 ```
 
 This allows a student's broader campus participation to become part of their identity.
@@ -493,7 +455,7 @@ Students should have a structured way to participate in improving their campus.
 
 ### 3. Improve
 
-Student actions should create measurable real-world impact.
+Student contributions should create meaningful, verifiable campus impact.
 
 ### 4. Unlock
 
