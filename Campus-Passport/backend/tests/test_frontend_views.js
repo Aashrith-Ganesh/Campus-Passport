@@ -1,18 +1,18 @@
-import * as login from '../static/assets/pages/login.js';
-import * as dashboard from '../static/assets/pages/dashboard.js';
-import * as passport from '../static/assets/pages/passport.js';
-import * as lens from '../static/assets/pages/campus-lens.js';
-import * as pulse from '../static/assets/pages/campus-pulse.js';
-import * as wallet from '../static/assets/pages/opportunity-wallet.js';
-import * as pocket from '../static/assets/pages/student-pocket.js';
-import * as tDash from '../static/assets/pages/teacher-dashboard.js';
-import * as tReports from '../static/assets/pages/teacher-reports.js';
-import * as tEvidence from '../static/assets/pages/teacher-evidence.js';
-import * as tRewards from '../static/assets/pages/teacher-rewards.js';
-import * as tPulseReview from '../static/assets/pages/teacher-pulse-review.js';
-import * as admin from '../static/assets/pages/admin.js';
-import * as merchant from '../static/assets/pages/merchant.js';
-import * as unauth from '../static/assets/pages/unauthorized.js';
+import * as login from '../../frontend/assets/pages/login.js';
+import * as dashboard from '../../frontend/assets/pages/dashboard.js';
+import * as passport from '../../frontend/assets/pages/passport.js';
+import * as lens from '../../frontend/assets/pages/campus-lens.js';
+import * as pulse from '../../frontend/assets/pages/campus-pulse.js';
+import * as wallet from '../../frontend/assets/pages/opportunity-wallet.js';
+import * as pocket from '../../frontend/assets/pages/student-pocket.js';
+import * as tDash from '../../frontend/assets/pages/teacher-dashboard.js';
+import * as tReports from '../../frontend/assets/pages/teacher-reports.js';
+import * as tEvidence from '../../frontend/assets/pages/teacher-evidence.js';
+import * as tRewards from '../../frontend/assets/pages/teacher-rewards.js';
+import * as tPulseReview from '../../frontend/assets/pages/teacher-pulse-review.js';
+import * as admin from '../../frontend/assets/pages/admin.js';
+import * as merchant from '../../frontend/assets/pages/merchant.js';
+import * as unauth from '../../frontend/assets/pages/unauthorized.js';
 
 const mockState = {
   studentId: 'STU001',
