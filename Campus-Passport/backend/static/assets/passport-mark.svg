@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Campus Passport mark">
+  <rect width="32" height="32" rx="9" fill="#244de5"/>
+  <path d="M10 9h9a5 5 0 0 1 0 10h-4v5h-5zm5 4v3h4a1.5 1.5 0 0 0 0-3z" fill="#fff"/>
+  <circle cx="24" cy="24" r="3" fill="#d2f369"/>
+</svg>
